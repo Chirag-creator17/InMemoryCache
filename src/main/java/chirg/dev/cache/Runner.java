@@ -15,9 +15,9 @@ public class Runner {
             phoneBook.put("Chiru", "Goel");
             phoneBook.put("Rishu", "Gupta");
             phoneBook.put("Golu", "Gupta");
-            phoneBook.put("Gorilla", "Gayn");
+            phoneBook.put("Atishay", "Jain");
 
-            String val = phoneBook.get("Gorilla");
+            String val = phoneBook.get("Atishay");
             System.out.println(val);
 
             phoneBook.put("Chiru", "Goel");
@@ -32,7 +32,7 @@ public class Runner {
 
             phoneBook.clearCache();
 
-            val = phoneBook.get("Gorilla");
+            val = phoneBook.get("Atishay");
             System.out.println(val);
 
         } catch (Exception e){
