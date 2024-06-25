@@ -37,8 +37,6 @@ public class Cache<KEY, VAL> {
             try {
                 mutex.lock();
                 evictionPolicy.keyAccessed(key);
-
-                keyStore.print();
                 return keyStore.getVal(key);
             } catch (Exception exc) {
                 System.out.println(exc.getMessage());
@@ -60,17 +58,13 @@ public class Cache<KEY, VAL> {
             try {
                 mutex.lock();
                 evictionPolicy.keyAccessed(key);
-
                 keyStore.update(key, value);
-                keyStore.print();
             } catch (KeyNotFoundException knf) {
                 try {
                     keyStore.insert(key, value);
-                    keyStore.print();
                 } catch (CacheOverflowException coe) {
                     evictionPolicy.evictKey();
                     keyStore.insert(key, value);
-                    keyStore.print();
                 }
             } catch (Exception exc) {
                 System.out.println(exc.getMessage());
