@@ -14,7 +14,7 @@ public class Runner {
         try {
             phoneBook.put("Chiru", "Goel");
             phoneBook.put("Rishu", "Gupta");
-            phoneBook.put("Golu", "Gupta");
+            phoneBook.put("Gaurav", "Gupta");
             phoneBook.put("Atishay", "Jain");
 
             String val = phoneBook.get("Atishay");
