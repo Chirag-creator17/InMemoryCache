@@ -98,27 +98,21 @@ To create a custom eviction policy, implement the `EvictionPolicy` interface:
 
 ```java
 public class CustomEvictionPolicy<K, V> implements EvictionPolicy<K, V> {
-    private final KeyStore<K, V> keyStore;
-    private final int capacity;
-
-    public CustomEvictionPolicy(KeyStore<K, V> keyStore, int capacity) {
-        this.keyStore = keyStore;
-        this.capacity = capacity;
-    }
+    private KeyStoreImpl<KEY, VAL> keyStore;
 
     @Override
-    public void onKeyAccess(K key) {
+    public void setKeyStore(KeyStoreImpl<KEY, VAL> keyStore) {
         // Custom logic for key access
     }
 
     @Override
-    public void onPut(K key, V value) {
+    public void keyAccessed(KEY key) throws KeyNotFoundException {
         // Custom logic for put operation
     }
 
     @Override
-    public int getCapacity() {
-        return capacity;
+    public void evictKey(){
+        // logic to evict key
     }
 }
 ```
